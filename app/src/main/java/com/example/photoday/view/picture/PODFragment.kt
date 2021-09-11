@@ -21,6 +21,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 class PODFragment : Fragment() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
+    private var minusTodayPlusDay: Int = 0
 
     private var _binding: MainFragmentBinding? = null
     val binding get() = _binding!!
@@ -43,14 +44,28 @@ class PODFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getLiveData().observe(viewLifecycleOwner, Observer<PODData> { renderData(it) })
-        viewModel.sendServerRequest(1)
+        binding.chipToday.setOnClickListener {
+            viewModel.getLiveData().observe(viewLifecycleOwner, Observer<PODData> { renderData(it) })
+            viewModel.sendServerRequest(minusTodayPlusDay)
+            setBottomSheetBehavior(binding.includeLayout.bottomSheetContainer)
+        }
+        binding.chipTomorrow.setOnClickListener {
+            viewModel.getLiveData().observe(viewLifecycleOwner, Observer<PODData> { renderData(it) })
+            viewModel.sendServerRequest(2)
+            setBottomSheetBehavior(binding.includeLayout.bottomSheetContainer)
+        }
+        binding.chipYesterday.setOnClickListener {
+            viewModel.getLiveData().observe(viewLifecycleOwner, Observer<PODData> { renderData(it) })
+            viewModel.sendServerRequest(1)
+            setBottomSheetBehavior(binding.includeLayout.bottomSheetContainer)
+        }
+
         binding.inputLayout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
                 Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
             })
         }
-        setBottomSheetBehavior(binding.includeLayout.bottomSheetContainer)
+
     }
 
     private fun renderData(data: PODData?) {
@@ -63,18 +78,7 @@ class PODFragment : Fragment() {
                 Toast.makeText(context, "PODDATA Loading", Toast.LENGTH_LONG).show()
             }
             is PODData.Success -> {
-                binding.chipToday.setOnClickListener {
-                    viewDataLayout(data.serverResponseData.url.toString(), data.serverResponseData.explanation.toString())
-                }
-                binding.chipTomorrow.setOnClickListener {
-
-                }
-                binding.chipYesterday.setOnClickListener {
-
-                }
-
-                // Дата в формате 2021-09-10чтоб не забыл
-                //binding.includeLayout.bottomSheetDescription.text = viewModel.getDaysAgo(0)
+                viewDataLayout(data.serverResponseData.url.toString(), data.serverResponseData.explanation.toString())
             }
         }
     }

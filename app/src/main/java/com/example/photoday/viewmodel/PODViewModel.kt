@@ -34,7 +34,7 @@ class PODViewModel(
 
         } else {
            rertofitIMPL.getRetrofitImpl("https://api.nasa.gov/")
-                .getPictureOfTheDay(apiKey)
+                .getPictureOfTheDay(apiKey, getDaysAgo(numberDay))
                 .enqueue(object : Callback<PODServerResponseData> {
                     override fun onResponse(
                         call: Call<PODServerResponseData>,
