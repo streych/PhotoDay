@@ -11,9 +11,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
-import com.google.gson.GsonBuilder
-
-import com.google.gson.Gson
 
 
 
