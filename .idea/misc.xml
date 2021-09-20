@@ -3,17 +3,36 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/drawable-v24/bg_earth.xml" value="0.1" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/drawable-v24/bg_mars.xml" value="0.1" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/drawable-v24/bg_system.xml" value="0.1" />
         <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/drawable-v24/ic_archive.xml" value="0.15" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/drawable-v24/ic_earth.xml" value="0.1" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/drawable-v24/ic_mars.xml" value="0.1" />
         <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/drawable-v24/ic_no_photo_vector.xml" value="0.39479166666666665" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/drawable-v24/ic_system.xml" value="0.1" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/drawable-v24/swipe_indicator_active.xml" value="0.1" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/drawable-v24/swipe_indicator_passive.xml" value="0.24537037037037038" />
         <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/drawable/background_mf.xml" value="0.1685185185185185" />
         <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/drawable/ic_launcher_background.xml" value="0.39479166666666665" />
         <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/drawable/ic_no_photo_vector.xml" value="0.15" />
         <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/drawable/progress_animation.xml" value="0.1" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/layout/activity_api_bottom.xml" value="0.2391304347826087" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/layout/activity_api_tablayout_earth.xml" value="0.2391304347826087" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/layout/activity_api_tablayout_item.xml" value="0.2391304347826087" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/layout/activity_api_tablayout_mars.xml" value="0.2391304347826087" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/layout/activity_api_tablayout_system.xml" value="0.2391304347826087" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/layout/api_activity.xml" value="0.5" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/layout/api_activity_bottom.xml" value="0.5" />
         <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.1838905775075988" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/layout/fragment_earth.xml" value="0.1" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/layout/fragment_mars.xml" value="0.2391304347826087" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/layout/fragment_system.xml" value="0.2391304347826087" />
         <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/layout/main_activity.xml" value="0.1838905775075988" />
-        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/layout/main_fragment.xml" value="0.33" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/layout/main_fragment.xml" value="0.19382022471910113" />
         <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/layout/settigs_fragment.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/menu/menu_bottom.xml" value="0.2" />
+        <entry key="..\:/Users/Robo/AndroidStudioProjects/PhotoDay/app/src/main/res/menu/menu_bottom_api.xml" value="0.378125" />
       </map>
     </option>
   </component>

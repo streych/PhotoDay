@@ -6,7 +6,7 @@
         <item name="colorPrimaryVariant">#4CAF50</item>
         <item name="colorOnPrimary">#FF0000</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="colorSecondary">#FFC107</item>
         <item name="colorSecondaryVariant">@color/purple_500</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->

@@ -30,19 +30,19 @@
                     android:id="@+id/chip_today"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Today" />
+                    android:text="@string/Earth" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_tomorrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tomorrow" />
+                    android:text="@string/tommoraw" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_yesterday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Yesterday" />
+                    android:text="@string/yestaday" />
             </com.google.android.material.chip.ChipGroup>
 
         </LinearLayout>
@@ -86,6 +86,7 @@
         android:id="@+id/botto_app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:menu="@menu/menu_bottom"
         android:layout_gravity="bottom"
         app:fabAlignmentMode="end" />
 

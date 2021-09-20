@@ -6,6 +6,11 @@
     <string name="wiki_helper">Поищите термин в википедии</string>
     <string name="favorite">favorite</string>
     <string name="settings">settings</string>
-    <string name="Search">Search</string>
+    <string name="earth">Earth</string>
+    <string name="mars">Mars</string>
+    <string name="system">System</string>
+    <string name="Earth">Земля</string>
+    <string name="tommoraw">Фото вчера</string>
+    <string name="yestaday">Фото сегодня</string>
 
 </resources>
