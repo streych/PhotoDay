@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.example.photoday.R
 
 import com.example.photoday.databinding.ApiActivityBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 private const val MIN_SCALE = 0.85f
 private const val MIN_ALPHA = 0.5f
@@ -22,10 +24,14 @@ class ApiActivity : AppCompatActivity() {
         binding = ApiActivityBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-        binding.viewPager.adapter = ViewPagerAdapter(supportFragmentManager)
-        binding.viewPager.setPageTransformer(true, ZoomOutPageTransformer())
-        binding.tabLayout.setupWithViewPager(binding.viewPager)
-        customTabs()
+        binding.viewPager.adapter = ViewPagerAdapter(this)
+        //binding.viewPager.setPageTransformer(true, ZoomOutPageTransformer())
+        binding.viewPager.setPageTransformer(ZoomOutPageTransformer())
+        //binding.tabLayout.setupWithViewPager(binding.viewPager)
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+            tab.text = "OBJECT ${position * 1}"
+        }
+        //customTabs()
 
     }
 
@@ -44,7 +50,7 @@ class ApiActivity : AppCompatActivity() {
 
 }
 
-class ZoomOutPageTransformer : ViewPager.PageTransformer {
+class ZoomOutPageTransformer : ViewPager2.PageTransformer {
     override fun transformPage(page: View, position: Float) {
         page.apply {
             val pageWidth = width
