@@ -4,10 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
-import com.example.photoday.R
-
 import com.example.photoday.databinding.ApiActivityBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -25,28 +22,11 @@ class ApiActivity : AppCompatActivity() {
 
         setContentView(binding.root)
         binding.viewPager.adapter = ViewPagerAdapter(this)
-        //binding.viewPager.setPageTransformer(true, ZoomOutPageTransformer())
         binding.viewPager.setPageTransformer(ZoomOutPageTransformer())
-        //binding.tabLayout.setupWithViewPager(binding.viewPager)
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = "OBJECT ${position * 1}"
         }
-        //customTabs()
-
     }
-
-    private fun customTabs() {
-        binding.tabLayout.apply {
-            getTabAt(0)?.customView =
-                layoutInflater.inflate(R.layout.activity_api_tablayout_earth, null)
-            getTabAt(1)?.customView =
-                layoutInflater.inflate(R.layout.activity_api_tablayout_mars, null)
-            getTabAt(2)?.customView =
-                layoutInflater.inflate(R.layout.activity_api_tablayout_system, null)
-
-        }
-    }
-
 
 }
 

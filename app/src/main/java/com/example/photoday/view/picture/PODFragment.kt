@@ -10,12 +10,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.example.photoday.R
 import com.example.photoday.api.ApiActivity
+import com.example.photoday.api.ApiBottomActivity
 import com.example.photoday.databinding.MainFragmentBinding
 import com.example.photoday.view.MainActivity
 import com.example.photoday.viewmodel.PODData
@@ -58,7 +60,6 @@ class PODFragment : Fragment() {
                     getLiveData1().observe(viewLifecycleOwner, Observer<POEData> {renderDataEarth(it)})
                     sendServerRequest(minusTodayPlusDay)
                     setBottomSheetBehavior(includeLayout.bottomSheetContainer)
-
                 }
                 chipTomorrow.setOnClickListener {
                     getLiveData()
@@ -113,7 +114,7 @@ class PODFragment : Fragment() {
                         requireActivity().startActivity(
                             Intent(
                                 requireActivity().baseContext,
-                                ApiActivity::class.java
+                                ApiBottomActivity::class.java
                             )
                         )
                         true
@@ -192,6 +193,26 @@ class PODFragment : Fragment() {
         val i = Intent(requireActivity().baseContext, MainActivity::class.java)
         i.putExtra("SENDER_KEY", p)
         requireActivity().startActivity(i)
+    }
+
+    private fun changeConstrains(set: ConstraintSet) {
+        set.clear(R.id.chip_today, ConstraintSet.LEFT)
+        set.clear(R.id.chip_today, ConstraintSet.TOP)
+
+        set.connect(
+            R.id.chip_today,
+            ConstraintSet.LEFT,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.LEFT,
+            0
+        )
+        set.connect(
+            R.id.chip_today,
+            ConstraintSet.RIGHT,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.RIGHT,
+            0
+        )
     }
 }
 

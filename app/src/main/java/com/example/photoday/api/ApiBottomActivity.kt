@@ -14,6 +14,7 @@ class ApiBottomActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setSupportActionBar(findViewById(R.id.toolbar))
         binding = ApiActivityBottomBinding.inflate(layoutInflater)
 
         setContentView(binding.root)

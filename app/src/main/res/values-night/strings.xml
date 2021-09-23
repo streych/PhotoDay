@@ -2,4 +2,5 @@
 <resources>
     <string name="Earth">Земля</string>
     <string name="tommoraw">Фото вчера</string>
+    <string name="hide">hide</string>
 </resources>
