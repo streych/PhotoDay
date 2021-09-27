@@ -14,9 +14,6 @@ import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 
-
-
-
 class PODViewModel(
     private val livaDataToObserver: MutableLiveData<PODData> = MutableLiveData(),
     private val livaDataToObserver1: MutableLiveData<POEData> = MutableLiveData(),

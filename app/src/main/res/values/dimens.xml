@@ -2,4 +2,5 @@
 <resources>
     <dimen name="LinearMarginBottomIndicatorImagePager">20dp</dimen>
     <dimen name="MarginEndIndicatorImageView">10dp</dimen>
+    <dimen name="StextMars">40sp</dimen>
 </resources>

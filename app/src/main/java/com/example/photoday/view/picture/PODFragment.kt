@@ -1,23 +1,25 @@
 package com.example.photoday.view.picture
 
+import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
+import android.app.ActivityOptions
 import android.app.AlertDialog
 import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.example.photoday.R
 import com.example.photoday.api.ApiActivity
-import com.example.photoday.api.ApiBottomActivity
 import com.example.photoday.databinding.MainFragmentBinding
 import com.example.photoday.view.MainActivity
 import com.example.photoday.viewmodel.PODData
@@ -27,7 +29,6 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 
 class PODFragment : Fragment() {
-
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
     private var minusTodayPlusDay: Int = 0
@@ -47,86 +48,96 @@ class PODFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = MainFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
+    @SuppressLint("ObsoleteSdkInt")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.apply {
-            viewModel.apply {
-                chipToday.setOnClickListener {
-                    getLiveData1().observe(viewLifecycleOwner, Observer<POEData> {renderDataEarth(it)})
-                    sendServerRequest(minusTodayPlusDay)
-                    setBottomSheetBehavior(includeLayout.bottomSheetContainer)
-                }
-                chipTomorrow.setOnClickListener {
-                    getLiveData()
-                        .observe(viewLifecycleOwner, Observer<PODData> { renderData(it) })
-                    sendServerRequest(2)
-                    setBottomSheetBehavior(includeLayout.bottomSheetContainer)
-                }
-                chipYesterday.setOnClickListener {
-                    getLiveData()
-                        .observe(viewLifecycleOwner, Observer<PODData> { renderData(it) })
-                    sendServerRequest(1)
-                    setBottomSheetBehavior(includeLayout.bottomSheetContainer)
-                }
-            }
-           inputLayout.setEndIconOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW).apply {
-                    Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
-                })
-            }
 
-            fab.setOnClickListener {
-                val mBuilder = AlertDialog.Builder(activity)
-                mBuilder.apply {
-                    setTitle("Выбери свой стиль:")
-                    setNeutralButton("Розовенькая") { dialog, which ->
-                        // Do something when click the neutral button
-                        sendData(1)
-                    }
-                    setNegativeButton("Зелененькая"){ dialog, which ->
-                        sendData(2)
-                    }
-                    setPositiveButton("Темненькая") { dialog, which ->
-                        val isNightTheme =
-                            resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-                        when (isNightTheme) {
-                            Configuration.UI_MODE_NIGHT_YES ->
-                                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                            Configuration.UI_MODE_NIGHT_NO ->
-                                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                        }
+        binding.chipToday.setOnClickListener {
+            viewModel.getLiveData1()
+                .observe(viewLifecycleOwner, Observer<POEData> { renderDataEarth(it) })
+            viewModel.sendServerRequest(minusTodayPlusDay)
+            setBottomSheetBehavior(binding.includeLayout.bottomSheetContainer)
+        }
+        binding.chipTomorrow.setOnClickListener {
+            viewModel.getLiveData()
+                .observe(viewLifecycleOwner, Observer<PODData> { renderData(it) })
+            viewModel.sendServerRequest(2)
+            setBottomSheetBehavior(binding.includeLayout.bottomSheetContainer)
+        }
+        binding.chipYesterday.setOnClickListener {
+            viewModel.getLiveData()
+                .observe(viewLifecycleOwner, Observer<PODData> { renderData(it) })
+            viewModel.sendServerRequest(1)
+            setBottomSheetBehavior(binding.includeLayout.bottomSheetContainer)
+        }
+
+        binding.inputLayout.setEndIconOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
+            })
+        }
+
+        binding.fab.setOnClickListener {
+            ObjectAnimator.ofFloat(binding.fab, "rotation", 0f, 180f).start()
+            val mBuilder = AlertDialog.Builder(activity)
+            mBuilder.apply {
+                setTitle("Выбери свой стиль:")
+                setNeutralButton("Розовенькая") { dialog, which ->
+                    // Do something when click the neutral button
+                    sendData(1)
+                }
+                setNegativeButton("Зелененькая") { dialog, which ->
+                    sendData(2)
+                }
+                setPositiveButton("Темненькая") { dialog, which ->
+                    val isNightTheme =
+                        resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+                    when (isNightTheme) {
+                        Configuration.UI_MODE_NIGHT_YES ->
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                        Configuration.UI_MODE_NIGHT_NO ->
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                     }
                 }
-                val mDialog = mBuilder.create()
-                mDialog.show()
-
             }
-
-            bottoAppBar.replaceMenu(R.menu.menu_bottom)
-            bottoAppBar.setOnMenuItemClickListener {
-                when (it.itemId) {
-                    R.id.api_activity -> {
-                        requireActivity().startActivity(
-                            Intent(
-                                requireActivity().baseContext,
-                                ApiBottomActivity::class.java
-                            )
-                        )
-                        true
-                    }
-                    else -> {
-                        false
-                    }
-                }
-            }
+            val mDialog = mBuilder.create()
+            mDialog.show()
 
         }
 
+        binding.bottoAppBar.replaceMenu(R.menu.menu_bottom)
+        binding.bottoAppBar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.api_activity -> {
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        startActivity(
+                            Intent(
+                                requireActivity().baseContext,
+                                ApiActivity::class.java
+                            ),
+                            ActivityOptions.makeSceneTransitionAnimation(requireActivity())
+                                .toBundle()
+                        )
+                    } else {
+                        startActivity(
+                            Intent(
+                                requireActivity().baseContext,
+                                ApiActivity::class.java
+                            )
+                        )
+                    }
+                    true
+                }
+                else -> {
+                    false
+                }
+            }
+        }
     }
 
     private fun renderData(data: PODData?) {
@@ -195,24 +206,5 @@ class PODFragment : Fragment() {
         requireActivity().startActivity(i)
     }
 
-    private fun changeConstrains(set: ConstraintSet) {
-        set.clear(R.id.chip_today, ConstraintSet.LEFT)
-        set.clear(R.id.chip_today, ConstraintSet.TOP)
-
-        set.connect(
-            R.id.chip_today,
-            ConstraintSet.LEFT,
-            ConstraintSet.PARENT_ID,
-            ConstraintSet.LEFT,
-            0
-        )
-        set.connect(
-            R.id.chip_today,
-            ConstraintSet.RIGHT,
-            ConstraintSet.PARENT_ID,
-            ConstraintSet.RIGHT,
-            0
-        )
-    }
 }
 
