@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.photoday.R
 import com.example.photoday.databinding.MainActivityBinding
+import com.example.photoday.view.nots.NotesFragment
 import com.example.photoday.view.picture.PODFragment
 
 
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(binding.container.id, PODFragment.newInstance())
+                .replace(binding.container.id, NotesFragment.newInstance())
                 .commitNow()
 
         }

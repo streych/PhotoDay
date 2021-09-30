@@ -2,4 +2,5 @@
 <resources>
     <dimen name="MarginEndIndicatorImageView">10dp</dimen>
     <dimen name="StextMars">40sp</dimen>
+    <dimen name="n_title_size">30sp</dimen>
 </resources>

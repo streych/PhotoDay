@@ -3,4 +3,8 @@
     <dimen name="LinearMarginBottomIndicatorImagePager">20dp</dimen>
     <dimen name="MarginEndIndicatorImageView">10dp</dimen>
     <dimen name="StextMars">40sp</dimen>
+    <dimen name="note_title_size">30sp</dimen>
+    <dimen name="n_title_size">30sp</dimen>
+    <dimen name="mar_float_recycler">15dp</dimen>
+    <dimen name="margin_image_add_remove">10dp</dimen>
 </resources>

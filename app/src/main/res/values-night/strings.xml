@@ -3,4 +3,7 @@
     <string name="Earth">Земля</string>
     <string name="tommoraw">Фото вчера</string>
     <string name="hide">hide</string>
+    <string name="note_title">Title</string>
+    <string name="note_description">Описание</string>
+    <string name="n_title">Заголовок</string>
 </resources>
