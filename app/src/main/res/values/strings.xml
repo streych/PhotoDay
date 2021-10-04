@@ -7,7 +7,10 @@
     <string name="favorite">favorite</string>
     <string name="settings">settings</string>
     <string name="earth">Earth</string>
-    <string name="mars">Mars</string>
+    <string name="mars">Mars
+        четвёртая по удалённости от Солнца и седьмая по размеру планета Солнечной системы;
+        масса планеты составляет 10,7 % массы Земли.
+    </string>
     <string name="system">System</string>
     <string name="Earth">Земля</string>
     <string name="tommoraw">Фото вчера</string>

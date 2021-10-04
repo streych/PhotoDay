@@ -1,42 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textMars"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/mars"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/eater"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/mars"
+        android:textSize="@dimen/StextMars"
+        app:fontFamily="@font/advent_pro_thin"
         app:layout_constraintBottom_toTopOf="@+id/mars"
-        android:textSize="@dimen/StextMars" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/mars"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/lMars"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textMars"
-        app:layout_constraintBottom_toTopOf="@+id/lMars"
         app:srcCompat="@drawable/bg_mars" />
 
     <LinearLayout
+        android:id="@+id/lMars"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
-        android:id="@+id/lMars"
+        android:layout_marginBottom="@dimen/LinearMarginBottomIndicatorImagePager"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="@dimen/LinearMarginBottomIndicatorImagePager"
-        android:gravity="center">
+        app:layout_constraintTop_toBottomOf="@+id/mars">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"

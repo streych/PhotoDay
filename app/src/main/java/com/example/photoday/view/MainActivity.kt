@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(binding.container.id, NotesFragment.newInstance())
+                .replace(binding.container.id, PODFragment.newInstance())
                 .commitNow()
 
         }
