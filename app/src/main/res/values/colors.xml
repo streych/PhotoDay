@@ -14,7 +14,7 @@
     <color name="colorAccent">#FFFFFF</color>
     <color name="colorErrorPD">#F44336</color>
     <color name="AlertDialogBackgroundPD">#FFE87A7A</color>
-    <color name="TitleDialogTextStylePD">#03A9F4</color>
+    <color name="TitleDialogTextStylePD">#8003A9F4</color>
 
     <color name="BottomAppBarColorPrimary">#E87A7A</color>
     <color name="BottomAppBarColorOnPrimary">#7C4D4D</color>
@@ -24,7 +24,7 @@
 
     <color name="TextInputStylePDBoxBackgroundColor">#FFC67878</color>
     <color name="TextInputStylePDBoxStrokeColor">#000000</color>
-    <color name="TextInputStylePDHelperTextTextColor">#00749F</color>
+    <color name="TextInputStylePDHelperTextTextColor">#8000749F</color>
 
     <color name="ChipPDchipIconTint">#FF7C4D4D</color>
     <color name="ChipPDchipBackgroundColor">#C67878</color>

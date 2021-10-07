@@ -7,10 +7,7 @@ import com.example.photoday.databinding.MainActivityBinding
 import com.example.photoday.view.nots.NotesFragment
 import com.example.photoday.view.picture.PODFragment
 
-
-
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(R.layout.main_activity) {
 
     private lateinit var binding: MainActivityBinding
 
@@ -20,7 +17,6 @@ class MainActivity : AppCompatActivity() {
         val i = intent
         val p: Int = i.getIntExtra("SENDER_KEY", 0)
         setTheme(chageStyle(p))
-        setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(binding.container.id, PODFragment.newInstance())
