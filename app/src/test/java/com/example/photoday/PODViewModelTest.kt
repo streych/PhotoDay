@@ -12,13 +12,23 @@ class PODViewModelTest {
 
 
     @Test
-    fun when_IntToStingValid() {
+    fun when_DateNotNull() {
         val dayAgoInputOne = 1
+        assertNotNull(viewModel.getDaysAgo(dayAgoInputOne))
+    }
+
+    @Test
+    fun when_DateEquals() {
+        val dayAgoInputOne = 1
+        val dayAgoOutput = "2022-02-26"
+        assertEquals(dayAgoOutput, viewModel.getDaysAgo(dayAgoInputOne))
+    }
+    @Test
+    fun when_DateNotEqualsToday() {
         val dayAgoInputZero = 0
         val dayAgoOutput = "2022-02-26"
-        assertNotNull(viewModel.getDaysAgo(dayAgoInputOne))
-        assertEquals(dayAgoOutput, viewModel.getDaysAgo(dayAgoInputOne))
         assertNotEquals(dayAgoOutput, viewModel.getDaysAgo(dayAgoInputZero))
     }
+
 
 }
