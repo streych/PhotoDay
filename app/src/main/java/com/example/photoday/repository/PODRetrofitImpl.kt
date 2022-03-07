@@ -7,6 +7,15 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class PODRetrofitImpl {
+
+    private val baseUrl = "https://api.nasa.gov/"
+    private val api by lazy {
+        Retrofit.Builder()
+            .baseUrl(baseUrl)
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
+            .build().create(GetAPI::class.java)
+    }
+
     fun getPictureOfTheDay(
         apiKey: String,
         podCallback: Callback<PODServerResponseData>,
@@ -31,13 +40,7 @@ class PODRetrofitImpl {
         api.getEarthOfTheDay(apiKey, -95.33, 29.78, date, 0.10).enqueue(earthCallback)
     }
 
-    private val baseUrl = "https://api.nasa.gov/"
-    private val api by lazy {
-        Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
-            .build().create(GetAPI::class.java)
-    }
+
 }
 
 

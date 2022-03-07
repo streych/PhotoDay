@@ -51,9 +51,6 @@ open class PODViewModel(
                     PODData.Success(response.body() as PODServerResponseData)
             } else {
                 val message = response.message()
-                //HW error max count
-                //Toast.makeText(,message, Toast.LENGTH_LONG).show()
-                //номер ошибки и вывод на экран
             }
         }
 
